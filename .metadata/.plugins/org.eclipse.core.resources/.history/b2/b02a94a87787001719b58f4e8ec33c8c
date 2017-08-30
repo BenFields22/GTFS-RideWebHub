@@ -1,0 +1,47 @@
+nav,.Validation{
+	display: block;
+	text-align:center;
+}
+
+	
+nav ul {
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	text-align:center;
+}
+
+nav li{
+	display:inline;
+	margin-right:0px;
+	border: 2px solid #000000;
+	text-align:center;
+}
+
+nav li a{
+	opacity: 0.8;
+	background-color:#aeaca8;
+	padding-right: 40px;
+	padding-left: 40px;
+	text-align:center;
+}
+
+nav li a:hover{
+	opacity:1.0;
+	background-color:#8FBC8F;
+}
+
+a:link{
+	text-decoration:none;
+}
+
+body{
+	background-image: url("https://prd-wret.s3-us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Mount%20Hood.jpg");
+}
+
+.Validation{
+	background-color:#F0FFFF;
+}
+
+
+
+

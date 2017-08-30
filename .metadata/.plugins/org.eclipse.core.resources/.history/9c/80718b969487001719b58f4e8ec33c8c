@@ -1,0 +1,50 @@
+var ans;
+
+document.addEventListener("DOMContentLoaded", function() {
+  speak();
+});
+
+function speak()
+{
+	//document.getElementById("Main").innerHTML = "Hello";
+}
+
+function presentDataEntry()
+{
+	var html =
+		'<div class="questions">\
+		<p>Select your favorite browser:</p>\
+		<form action="">\
+		  <input type="radio" name="browser" onclick="setVal(this.value)" value="Internet Explorer">Internet Explorer<br>\
+		  <input type="radio" name="browser" onclick="setVal(this.value)" value="Firefox">Firefox<br>\
+		  <input type="radio" name="browser" onclick="setVal(this.value)" value="Opera">Opera<br>\
+		  <input type="radio" name="browser" onclick="setVal(this.value)" value="Google Chrome">Google Chrome<br>\
+		  <input type="radio" name="browser" onclick="setVal(this.value)" value="Safari">Safari<br><br>\
+\
+		  <input type="submit" value="Submit form" onclick="showAnswer()">\
+		</form>\
+\
+		</div>';
+	document.getElementById("main").innerHTML = html;
+}
+
+function speakAbout()
+{
+	document.getElementById("main").innerHTML = 
+	"<p>This project is being developed with The Oregon Department of Transportation (ODOT) and Oregon State University."+
+	"<br>This software platform is for the support of the GTFS-ride feed specification." +
+	"<br>The GTFS-ride feed specification can be found at <a href=\"https://github.com/ODOT-PTS/GTFS-ride\">https://github.com/ODOT-PTS/GTFS-ride</a>" +
+	"</p>";
+}
+
+function setVal(val)
+{
+	ans = val;
+}
+
+function showAnswer()
+{
+	document.getElementById("main").innerHTML = "You answered "+ ans;
+	
+}
+

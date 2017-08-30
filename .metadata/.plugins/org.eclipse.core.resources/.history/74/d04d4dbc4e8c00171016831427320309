@@ -1,0 +1,12 @@
+function checkAnswer(passForm)
+{
+	str = "you chose "+ passForm.dataType.value;
+	$('data-content="Data Entry"').innerHTML = str;
+	alert(str);
+	window.open("test.html");
+	
+}
+
+$(document).ready(function(){
+	
+})

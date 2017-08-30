@@ -1,1 +1,5 @@
 /build/
+/.DS_Store
+/.metadata/
+/Servers/
+/apache-tomcat-7.0.79/

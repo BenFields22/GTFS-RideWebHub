@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="Resources/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="Resources/css/style.css"> <!-- Resource style -->
+	<script src="Resources/js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="Resources/js/questions.js"></script>
+  	
+	<title>GTFS-ride WebHub</title>
+</head>
+<body>
+<header>
+	<img src="http://media.oregonlive.com/portland_impact/photo/screen-shot-2016-05-30-at-24209-pmpng-e205bbef2f5adac7.png">
+	<h1>GTFS-ride WebHub</h1>
+</header>
+<div class="cd-tabs">
+	<nav>
+		<ul class="cd-tabs-navigation">
+			<li><a data-content="Home" class="selected" href="#0">Home</a></li>
+			<li><a data-content="Validation" href="#0">Validation</a></li>
+			<li><a data-content="Data Entry" href="#0">Data Entry</a></li>
+			<li><a data-content="Analytics" href="#0">Analytics</a></li>
+			<li><a data-content="About" href="#0">About</a></li>
+			<li><a data-content="Contact" href="#0">Contact</a></li>
+		</ul> <!-- cd-tabs-navigation -->
+	</nav>
+
+	<ul class="cd-tabs-content">
+		<li id='homePanel' data-content="Home" class="selected">
+			<p>Welcome to the GTFS-ride WebHub. This page provides you with a suite of applications to support the GTFS-ride data standard.
+				Information regarding the standard can be found at <a target=# href="https://github.com/ODOT-PTS/GTFS-ride">https://github.com/ODOT-PTS/GTFS-ride</a>.
+				This tool suite provides the ability to complete the following tasks:<br>
+				- Validate GTFS-ride feed<br>
+			- Enter GTFS-ride feed into central data repository<br>
+			- Create new GTFS-ride feeds<br>
+			- Run analytics on Ridership data contained within data repository<br>
+			</p>
+			
+		</li>
+
+		<li data-content="Validation">
+			<p>
+				To validate a GTFS-ride feed please use the GTFS-ride feed validation tool found at <a target=# href="https://github.com/ODOT-PTS/transitfeed-ride">https://github.com/ODOT-PTS/transitfeed-ride</a>. 
+			</p>
+
+		</li>
+
+		<li data-content="Data Entry">
+			<p>Please Select the option that best describes your data:
+			<form id = dataFormQ >
+  				<input type="radio" name="dataType" value="1" checked> Complete unvalidated GTFS-ride feed<br>
+  				<input type="radio" name="dataType" value="2"> Validated GTFS-ride feed<br>
+  				<input type="radio" name="dataType" value="3"> Partial GTFS-ride feed<br>
+  				<input type="radio" name="dataType" value="4"> GTFS feed<br>
+  				<input type="submit" value="Submit">
+			</form> 
+			</p>
+		</li>
+
+		<li data-content="Analytics">
+			<p>TODO</p>
+		</li>
+
+		<li data-content="About">
+			<p>TODO</p>
+
+		</li>
+
+		<li data-content="Contact">
+			<p>TODO</p>
+
+		</li>
+	</ul> <!-- cd-tabs-content -->
+</div> <!-- cd-tabs -->
+
+<script src="Resources/js/jquery-2.1.1.js"></script>
+<script src="Resources/js/main.js"></script> <!-- Resource jQuery -->
+</body>
+
+<footer>
+	<p>Copyright &copy; 2017 Oregon Department of Transportation (ODOT)</p>
+</footer>
+</html>

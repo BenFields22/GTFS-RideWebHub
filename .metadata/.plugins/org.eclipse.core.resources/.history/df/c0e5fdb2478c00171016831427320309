@@ -1,0 +1,6 @@
+function checkAnswer(passForm)
+{
+	str = "you chose "+ passForm.value;
+	alert(str);
+	return true;
+}

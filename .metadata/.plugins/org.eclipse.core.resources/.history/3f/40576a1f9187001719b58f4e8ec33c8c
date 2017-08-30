@@ -1,0 +1,65 @@
+var ans;
+
+document.addEventListener("DOMContentLoaded", function() {
+  speak();
+});
+
+function speak()
+{
+	//document.getElementById("Main").innerHTML = "Hello";
+}
+
+function presentDataEntry()
+{
+	var html =
+		'<div class="questions">\
+			<form onsubmit="showAnswer();" id="quiz">\
+	    		<h3>Please select the option that best describes your data</h3>\
+		    	<div>\
+		        	<input type="radio" name="question1" id="question1a1" value="1" />\
+		        	<label > Have feed that has not been validated. </label>\
+		    	</div>\
+		    	\
+		    	<div>\
+					<input type="radio" name="question1" id="question1a2" value="2" />\
+		        	<label> Have feed that has been validated.</label>\
+		    	</div>\
+				<div>\
+					<input type="radio" name="question1" id="question1a3" value="3" />\
+    				<label>Have GTFS data set</label>\
+				</div>\
+				<div>\
+					<input type="radio" name="question1" id="question1a4" value="4" />\
+					<label>Have incomplete GTFS-ride data set</label>\
+				</div><br>\
+				<input type="submit" value="Submit" />\
+			</form>\
+		</div>';
+	document.getElementById("main").innerHTML = html;
+}
+
+function speakAbout()
+{
+	document.getElementById("main").innerHTML = 
+	"<p>This project is being developed with The Oregon Department of Transportation (ODOT) and Oregon State University."+
+	"<br>This software platform is for the support of the GTFS-ride feed specification." +
+	"<br>The GTFS-ride feed specification can be found at <a href=\"https://github.com/ODOT-PTS/GTFS-ride\">https://github.com/ODOT-PTS/GTFS-ride</a>" +
+	"</p>";
+}
+
+function showAnswer()
+{
+	
+	var radios = document.getElementsByName('quiz');
+
+	for (var i = 0, length = radios.length; i < length; i++) {
+	    if (radios[i].checked) {
+	        // do whatever you want with the checked radio
+	        //document.getElementById("main").innerHTML = "you answered " + radios[i].value;
+
+	        // only one radio can be logically checked, don't check the rest
+	        break;
+	    }
+	} 
+}
+

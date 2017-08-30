@@ -1,0 +1,7 @@
+function checkAnswer(passForm)
+{
+	str = "you chose "+ passForm.dataType.value;
+	alert(str);
+	window.open("test.html");
+	
+}

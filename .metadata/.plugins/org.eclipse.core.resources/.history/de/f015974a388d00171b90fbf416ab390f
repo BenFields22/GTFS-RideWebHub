@@ -1,0 +1,53 @@
+var answer;
+var def = '<p>Please Select the option that best describes your data:<br>\
+	<input onclick= updateAns(this) type="radio" name="dataType" value="1"> Complete unvalidated GTFS-ride feed<br>\
+	<input onclick= updateAns(this) type="radio" name="dataType" value="2"> Complete validated GTFS-ride feed<br>\
+	<input onclick= updateAns(this) type="radio" name="dataType" value="3"> Partial GTFS-ride feed<br>\
+	<input onclick= updateAns(this) type="radio" name="dataType" value="4"> GTFS feed<br>\
+	<input  type="submit" value= "Submit" onclick="return checkAnswer()"> \
+</p>';
+
+function checkAnswer(passForm)
+{
+	//str = "you chose "+ answer;
+	//alert(str);
+	if(answer=='1')
+		{
+		//unvalidated gtfs-ride file
+			$('#dataPanel').html('<p>Please validate your feed before continue with the data upload process.' +
+				'The validation tool can be found at <a target=# href="https://github.com/ODOT-PTS/transitfeed-ride">https://github.com/ODOT-PTS/transitfeed-ride</a></p>');
+			$('#dataPanel').append('<input type=button value="refresh" onclick="refresh()">');
+		}
+	else if(answer=='2')
+		{
+			//complete validated gtfs-ride feed
+		$('#dataPanel').html('<p></p>');
+	$('#dataPanel').append('<input type=button value="refresh" onclick="refresh()">');
+		}
+	else if(answer=='3')
+		{
+		//partial gtfs ride feed
+		$('#dataPanel').html('<p>Please validate your feed before continue with the data upload process.' +
+	$('#dataPanel').append('<input type=button value="refresh" onclick="refresh()">');
+		}
+	else if(answer=='4')
+		{
+		//only gtfs data
+		$('#dataPanel').html('<p>Please validate your feed before continue with the data upload process.' +
+	$('#dataPanel').append('<input type=button value="refresh" onclick="refresh()">');
+		}
+	
+	
+	return false;
+}
+
+function refresh()
+{
+	$('#dataPanel').html(def);
+	return false;
+}
+
+function updateAns(formButtom)
+{
+	answer = formButtom.value;
+}

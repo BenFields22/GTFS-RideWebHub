@@ -1,0 +1,17 @@
+function checkAnswer(passForm)
+{
+	str = "you chose "+ passForm.dataType.value;
+	alert(str);
+	window.open("test.html");
+	$('homePanel').html("Replaced");
+	
+}
+
+$('#dataFormQ').submit(function () {
+	 alert("the form was submited");
+	 return false;
+	});
+
+$(document).ready(function(){
+	
+})
