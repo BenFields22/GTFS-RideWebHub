@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="Resources/css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="Resources/css/style.css"> <!-- Resource style -->
 	<script src="Resources/js/modernizr.js"></script> <!-- Modernizr -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="Resources/js/jszip.js"></script>
+	<script src="Resources/js/jquery-2.1.1.js"></script>
 	
   	
 	<title>GTFS-ride WebHub</title>
@@ -26,7 +28,7 @@
 			<li><a data-content="Home" class="selected" href="#0">Home</a></li>
 			<li><a data-content="Validation" href="#0">Validation</a></li>
 			<li><a data-content="Data Entry" href="#0">Data Entry</a></li>
-			<li><a data-content="Analytics" href="#0">Analytics</a></li>
+			<li><a data-content="Reports" href="#0">Reports</a></li>
 			<li><a data-content="About" href="#0">About</a></li>
 			<li><a data-content="Contact" href="#0">Contact</a></li>
 		</ul> <!-- cd-tabs-navigation -->
@@ -63,12 +65,43 @@
 			</p>
 		</li>
 
-		<li id='analyticsPanel'data-content="Analytics">
-			<p>TODO</p>
+		<li id='analyticsPanel'data-content="Reports">
+			<p>
+			Please select the parameters for the report you would like to generate:<br>
+				Report Type:
+				<select id="report">
+					<option value="1">Aggregate Ridership</option>
+					<option value="2">Resource Utilization</option>
+					<option value="3">Density Report</option>
+				</select><br>
+				Aggregation Level:
+				<select id="report">
+					<option value="1">System</option>
+					<option value="2">Route</option>
+					<option value="3">Stop</option>
+				</select><br>
+				Agency:
+				<select id="report">
+					<option value="1">AgencyA</option>
+					<option value="2">AgencyB</option>
+					<option value="3">AgencyC</option>
+				</select><br><br>
+				Time Period:<br>
+				Start Time:
+				<input type="date">
+				<input type="time"><br>
+				End Time:
+				<input type="date">
+				<input type="time"><br>
+				
+				<input type="submit" value="Generate"onclick=#0>
+			</p>
 		</li>
 
 		<li id='aboutPanel'data-content="About">
-			<p>TODO</p>
+			<p>
+			TODO
+			</p>
 
 		</li>
 

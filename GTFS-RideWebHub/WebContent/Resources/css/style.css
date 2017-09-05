@@ -13,6 +13,19 @@ Primary style
   content: '';
 }
 
+.upload{
+	background:#90EE90;
+	color:black;
+	border: solid 1px;
+}
+
+.editPanel{
+	width:600px;
+	height:auto;
+	border:1px solid black;
+	color:black;
+}
+
 
 
 form{
@@ -241,7 +254,7 @@ header h1 {
 .cd-tabs-navigation a[data-content='Data Entry']::before {
   background-position: -40px 0;
 }
-.cd-tabs-navigation a[data-content='Analytics']::before {
+.cd-tabs-navigation a[data-content='Reports']::before {
   background-position: -60px 0;
 }
 .cd-tabs-navigation a[data-content='About']::before {
@@ -259,7 +272,7 @@ header h1 {
 .cd-tabs-navigation a[data-content='Data Entry'].selected::before {
   background-position: -40px -20px;
 }
-.cd-tabs-navigation a[data-content='Analytics'].selected::before {
+.cd-tabs-navigation a[data-content='Reports'].selected::before {
   background-position: -60px -20px;
 }
 .cd-tabs-navigation a[data-content='About'].selected::before {
@@ -289,7 +302,7 @@ header h1 {
 @media only screen and (min-width: 960px) {
   .cd-tabs-navigation {
     /* tabbed on top on big devices */
-    width: auto;
+    width: 100%;
     background-color: #f8f7ee;
     box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
   }
@@ -300,7 +313,7 @@ header h1 {
     text-align: left;
     font-size: 14px;
     font-size: 0.875rem;
-    padding: 0 2.8em 0 4.6em;
+    padding: 0 2.8em 0 2.8em;
   }
   .cd-tabs-navigation a.selected {
     box-shadow: inset 0 2px 0 #f05451;

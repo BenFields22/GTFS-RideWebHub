@@ -1,4 +1,5 @@
 var answer;
+var fileEdit;
 var def = '<p>Please Select the option that best describes your data:<br>\
 	<input onclick= updateAns(this) type="radio" name="dataType" value="1"> Complete unvalidated GTFS-ride feed<br>\
 	<input onclick= updateAns(this) type="radio" name="dataType" value="2"> Complete validated GTFS-ride feed<br>\
@@ -32,45 +33,55 @@ function checkAnswer(passForm)
 	else if(answer=='2')
 		{
 			//complete validated gtfs-ride feed
-		$('#dataPanel').html('<p><strong>Complete Validated GTFS-ride feed</strong><br>Please load the feed files:</p>'+
-				'<h1>GTFS Files:</h1>'+
-				'<div class="fileButton"><strong>agency.txt </strong><input type="file" id="agencyFile"></div><br>'+
-				'<div class="fileButton"><strong>stops.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton"><strong>routes.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton"><strong>trips.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton"><strong>stop_times.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton"><strong>calendar.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">calendar_dates.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">fare_attributes.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">fare_rules.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">shapes.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">frequencies.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">transfers.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">feed_info.txt <input type="file" id="stopsFile"></div><br>'+
-				'<h1>GTFS-ride Files:</h1>'+
-				'<div class="fileButton">board_alight.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">trip_capacity.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">rider_trip.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton">ridership.txt <input type="file" id="stopsFile"></div><br>'+
-				'<div class="fileButton"><strong>ride_feed_info.txt </strong><input type="file" id="stopsFile"></div><br>'+
-				'<div class="requiredNote">Note: Red colored files are required</div><br>');
+		$('#dataPanel').html('<p><strong>Please select and upload your validated GTFS-ride feed in a zip file format</strong></p>'+
+				'<div class="fileButton"><strong>GTFS-ride feed: </strong><input type="file" id="GTFSrideFeed"></div><br>');
 		
-	$('#dataPanel').prepend('<input type=button value="Back" onclick="refresh()">');
-	$('#dataPanel').prepend('<input type=button value="Upload to Database" onclick=#0>');
-	$('#dataPanel').prepend('<input type=button value="Create Zip" onclick=#0>');
+	$('#dataPanel').append(' <input type=button value="Upload to Database" onclick=#0> ');
+	$('#dataPanel').append('<input type=button value="Create Zip" onclick=#0>  ');
+	$('#dataPanel').append('<input type=button value="Back" onclick="refresh()">');
 	$('.fileButton').css("color","black");
 		}
 	else if(answer=='3')
 		{
 		//partial gtfs ride feed
-		$('#dataPanel').html('<p>Partial GTFS-ride feed<br>TODO:Ask what files they have and what are incomplete with a form</p>');
-	$('#dataPanel').append('<input type=button value="Back" onclick="refresh()">');
+		$('#dataPanel').html('<p><strong>Please select and upload your GTFS feed file in a zip file format</strong></p>'+
+		'<div class="fileButton"><strong>GTFS feed: </strong><input type="file" id="GTFSFeed"></div><br>');
+
+		
+			$('#dataPanel').append(
+				'<p>Select the files that need to be completed: <br>'+
+					'<input type="checkbox" name="files" value="1"> Rider_feed_info.txt<br>'+
+					'<input type="checkbox" name="files" value="2"> board_alight.txt<br>'+
+					'<input type="checkbox" name="files" value="3">rider_trip.txt<br>'+
+					'<input type="checkbox" name="files" value="4"> ridership.txt<br>'+
+					'<input type="checkbox" name="files" value="5"> trip_capacity.txt<br>'+
+					'<input type="submit" value="Continue"></p>'
+					);
+
+			$('#dataPanel').append(' <input type=button value="Upload to Database" onclick=#0> ');
+			$('#dataPanel').append('<input type=button value="Create Zip" onclick=#0>  ');
+			$('#dataPanel').append('<input type=button value="Back" onclick="refresh()">');
+			$('.fileButton').css("color","black");
 		}
 	else if(answer=='4')
 		{
 		//only gtfs data
-		$('#dataPanel').html('<p>GTFS feed<br> TODO:Load gtfs feed and then create new gtfs-ride files</p>');
-	$('#dataPanel').append('<input type=button value="Back" onclick="refresh()">');
+		$('#dataPanel').html('<p><strong>Please select and upload your GTFS feed file in a zip file format</strong></p>'+
+		'<div class="fileButton"><strong>GTFS feed: </strong><input type="file" id="GTFSFeed"></div><br>');
+		$('#dataPanel').append('<p>Please enter the data for your GTFS-ride feed:<br>'+
+				'ride_feed_info.txt <input type="submit" onclick="enterData(1)" value="Edit"> <br>'+
+				'board_alight.txt <input type="submit" onclick="enterData(2)" value="Edit"> <br>'+
+				'rider_trip.txt <input type="submit" onclick="enterData(3)" value="Edit"> <br>'+
+				'ridership.txt <input type="submit" onclick="enterData(4)" value="Edit"> <br>'+
+				'trip_capacity.txt <input type="submit" onclick="enterData(5)" value="Edit"> <br>'
+				);
+		
+
+			$('#dataPanel').append(' <input type=button value="Upload to Database" onclick=#0> ');
+			$('#dataPanel').append('<input type=button value="Create Zip" onclick=#0>  ');
+			$('#dataPanel').append('<input type=button value="Back" onclick="refresh()">');
+			$('.fileButton').css("color","black");
+			$('#dataPanel').append('<div id="editData"></div>');
 		}
 	
 	var selectedContent = $('li[data-content="Data Entry"]');
@@ -79,6 +90,53 @@ function checkAnswer(passForm)
 		'height': slectedContentHeight
 	}, 200);
 	return false;
+}
+
+function clearEdit(){
+	$('#editData').html("");
+	var selectedContent = $('li[data-content="Data Entry"]');
+	var slectedContentHeight = selectedContent.innerHeight();
+	$('.cd-tabs-content').animate({
+		'height': slectedContentHeight
+	}, 200);
+}
+
+function enterData(i){
+	if(i==1)
+		{
+			$('#editData').html('<br><div class="editPanel">'+
+					'<br><strong>ride_files</stong> <input type="number" name="numFiles" min="0" max="6"><br>'+
+					'ride_start_date <input type="text" name="ride_start_date"> (format YYYYMMDD)<br>'+
+					'ride_end_date <input type="text" name="ride_end_date"> (format YYYYMMDD)<br>'+
+					'gtfs_feed_date <input type="text" name="gtfs_feed_date"> (format YYYYMMDD)<br>'+
+					'default_currency_type <input type="text" name="default_currency_type"> <br>'+
+					'ride_feed_version <input type="text" name="ride_feed_version"> <br>'+
+					'</div>');
+		}
+	else if(i==2)
+	{
+		$('#editData').html('<br><div class="editPanel"><br>board_alight</div>');
+	}
+	else if(i==3)
+	{
+		$('#editData').html('<br><div class="editPanel"><br>rider_trip</div>');
+	}
+	else if(i==4)
+	{
+		$('#editData').html('<br><div class="editPanel"><br>ridership</div>');
+	}
+	else if(i==5)
+	{
+		$('#editData').html('<br><div class="editPanel"><br>trip_capacity</div>');
+	}
+	
+	$('#editData').append('<input type=button value="Create" onclick=#0>');
+	$('#editData').append('<input type="submit" value="close" onclick="clearEdit()">');
+	var selectedContent = $('li[data-content="Data Entry"]');
+	var slectedContentHeight = selectedContent.innerHeight();
+	$('.cd-tabs-content').animate({
+		'height': slectedContentHeight
+	}, 200);
 }
 
 function refresh()
