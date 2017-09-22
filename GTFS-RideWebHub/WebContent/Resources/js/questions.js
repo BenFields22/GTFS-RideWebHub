@@ -33,8 +33,16 @@ function checkAnswer(passForm)
 	else if(answer=='2')
 		{
 			//complete validated gtfs-ride feed
-		$('#dataPanel').html('<p><strong>Please select and upload your validated GTFS-ride feed in a zip file format</strong></p>'+
-				'<div class="fileButton"><strong>GTFS-ride feed: </strong><input type="file" id="GTFSrideFeed"></div><br>');
+		
+		$('#dataPanel').html('<p>'+
+				'Choose the local(s) zip file(s)<br>'+
+				'Note : your browser will process the zip file, don\'t choose a file too big !<br>'+
+				'<input type="file" id="file" name="file" multiple /><br />'+
+				'<div id="result_block" class="hidden">'+
+				  '<p>Content :</p>'+
+				  '<div id="result"></div>'+
+				  '<input type=button value="load" onclick="testLoad()">'+
+				'</div></p>');
 		
 	$('#dataPanel').append(' <input type=button value="Upload to Database" onclick=#0> ');
 	$('#dataPanel').append('<input type=button value="Create Zip" onclick=#0>  ');
@@ -115,19 +123,86 @@ function enterData(i){
 		}
 	else if(i==2)
 	{
-		$('#editData').html('<br><div class="editPanel"><br>board_alight</div>');
+		$('#editData').html('<br><div class="editPanel">'+
+				'<br><strong>trip_id</stong> <input type="text" name="trip_id"><br>'+
+				'<strong>stop_id</strong> <input type="text" name="stop_id"><br>'+
+				'<strong>stop_sequence</strong> <input type="text" name="stop_sequence"> <br>'+
+				'<strong>record_use</strong> <input type="text" name="record_use"> <br>'+
+				'schedule_relationship <input type="text" name="schedule_relationship"> <br>'+
+				'boardings <input type="text" name="boardings"> <br>'+
+				'alightings <input type="text" name="alightings"> <br>'+
+				'current_load <input type="text" name="current_load"> <br>'+
+				'load_type <input type="text" name="load_type"> <br>'+
+				'rack_down <input type="text" name="rack_down"> <br>'+
+				'bike_boardings <input type="text" name="bike_boardings"> <br>'+
+				'bike_alightings <input type="text" name="bike_alightings"> <br>'+
+				'ramp_used <input type="text" name="ramp_used"> <br>'+
+				'ramp_boardings <input type="text" name="ramp_boardings"> <br>'+
+				'ramp_alightings <input type="text" name="ramp_alightings"> <br>'+
+				'service_date <input type="text" name="service_date"> <br>'+
+				'service_arrival_time <input type="text" name="service_arrival_time"> <br>'+
+				'service_departure_time <input type="text" name="service_departure_time"> <br>'+
+				'source <input type="text" name="source"> <br>'+
+		'</div>');
 	}
 	else if(i==3)
 	{
-		$('#editData').html('<br><div class="editPanel"><br>rider_trip</div>');
+		$('#editData').html('<br><div class="editPanel">'+
+				'<br><strong>rider_id</stong> <input type="text" name="rider_id"><br>'+
+				'agency_id <input type="text" name="agency_id"><br>'+
+				'trip_id <input type="text" name="trip_id"> <br>'+
+				'boarding_stop_id <input type="text" name="boarding_stop_id"> <br>'+
+				'boarding_stop_sequence <input type="text" name="boarding_stop_sequence"> <br>'+
+				'alighting_stop_id <input type="text" name="alighting_stop_id"> <br>'+
+				'alighting_stop_sequence <input type="text" name="alighting_stop_sequence"> <br>'+
+				'service_date <input type="text" name="service_date"> <br>'+
+				'boarding_time <input type="text" name="boarding_time"> <br>'+
+				'alighting_time <input type="text" name="alighting_time"> <br>'+
+				'rider_type <input type="text" name="rider_type"> <br>'+
+				'rider_type_description <input type="text" name="rider_type_description"> <br>'+
+				'fare_paid <input type="text" name="fare_paid"> <br>'+
+				'transaction_type <input type="text" name="transaction_type"> <br>'+
+				'fare_media <input type="text" name="fare_media"> <br>'+
+				'accompanying_device <input type="text" name="accompanying_device"> <br>'+
+				'transfer_status <input type="text" name="transfer_status"> <br>'+
+		'</div>');
 	}
 	else if(i==4)
 	{
-		$('#editData').html('<br><div class="editPanel"><br>ridership</div>');
+		$('#editData').html('<br><div class="editPanel">'+
+				'<br><strong>total_boardings</stong> <input type="text" name="total_boardings"><br>'+
+				'<strong>total_alightings</strong> <input type="text" name="total_alightings"><br>'+
+				'<strong>ridership_start_date</strong> <input type="text" name="ridership_start_date"> <br>'+
+				'<strong>ridership_end_date</strong> <input type="text" name="ridership_end_date"> <br>'+
+				'ridership_start_time <input type="text" name="ridership_start_time"> <br>'+
+				'ridership_end_time <input type="text" name="ridership_end_time"> <br>'+
+				'service_id <input type="text" name="service_id"> <br>'+
+				'monday <input type="text" name="monday"> <br>'+
+				'tuesday <input type="text" name="tuesday"> <br>'+
+				'wednesday <input type="text" name="wednesday"> <br>'+
+				'thursday <input type="text" name="thursday"> <br>'+
+				'friday <input type="text" name="friday"> <br>'+
+				'saturday <input type="text" name="saturday"> <br>'+
+				'sunday <input type="text" name="sunday"> <br>'+
+				'agency_id <input type="text" name="agency_id"> <br>'+
+				'route_id <input type="text" name="route_id"> <br>'+
+				'direction_id <input type="text" name="direction_id"> <br>'+
+				'trip_id <input type="text" name="trip_id"> <br>'+
+				'stop_id <input type="text" name="stop_id"> <br>'+
+		'</div>');
 	}
 	else if(i==5)
 	{
-		$('#editData').html('<br><div class="editPanel"><br>trip_capacity</div>');
+		$('#editData').html('<br><div class="editPanel">'+
+				'<br>agency_id<input type="text" name="agency_id"><br>'+
+				'<trip_id <input type="text" name="trip_id"><br>'+
+				'service_date <input type="text" name="service_date"> <br>'+
+				'vehicle_description <input type="text" name="vehicle_description"> <br>'+
+				'seated_capacity <input type="text" name="seated_capacity"> <br>'+
+				'standing_capacity <input type="text" name="standing_capacity"> <br>'+
+				'wheelchair_capacity <input type="text" name="wheelchair_capacity"> <br>'+
+				'bike_capacity <input type="text" name="bike_capacity"> <br>'+
+		'</div>');
 	}
 	
 	$('#editData').append('<input type=button value="Create" onclick=#0>');
